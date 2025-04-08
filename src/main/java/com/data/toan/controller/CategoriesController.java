@@ -1,5 +1,5 @@
 package com.data.toan.controller;
 
-public class Categories {
+public class CategoriesController {
 
 }
