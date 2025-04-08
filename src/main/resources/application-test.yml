@@ -1,0 +1,23 @@
+server:
+  port: 8081
+spring:
+  config:
+    activate:
+      on-profile: test
+  datasource:
+    url: jdbc:postgresql://localhost:3312/toan2002
+    username: toan1234
+    password: 123456
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+#   kafka:
+#     bootstrap-servers: ${SPRING_KAFKA_BOOTSTRAP_SERVERS:localhost:9092}
+#   SPRING_DATASOURCE_URL: jdbc:postgresql://database:5432/toan2002
+#   SPRING_DATASOURCE_USERNAME: toan1234
+#   SPRING_DATASOURCE_PASSWORD: 123456
