@@ -1,12 +1,12 @@
 package com.data.toan.model;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.hibernate.annotations.JdbcTypeCode;
 import org.hibernate.type.SqlTypes;
 
 import com.data.toan.util.ListEnum.TypeEnum;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
@@ -34,6 +34,7 @@ import lombok.Setter;
 public class CategoriesEntity extends AbstractEntity {
     @Column(name = "name")
     private String name;
+
     @Enumerated(EnumType.STRING)
     @JdbcTypeCode(SqlTypes.NAMED_ENUM)
     @Column(name = "Type")
@@ -41,6 +42,7 @@ public class CategoriesEntity extends AbstractEntity {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")
+    @JsonIgnore
     private UserEntity user;
     @OneToMany(mappedBy = "category", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<TransactionEntity> transactions;

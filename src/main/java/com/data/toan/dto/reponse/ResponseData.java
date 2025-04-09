@@ -16,8 +16,8 @@ public class ResponseData<T> {
     @JsonInclude(JsonInclude.Include.NON_NULL) // khi data khac null thi hien
     private T data;
 
-    public ResponseData(int status, String messaString) {
+    public ResponseData(int status, String mess) {
         this.status = status;
-        this.message = messaString;
+        this.message = mess;
     }
 }

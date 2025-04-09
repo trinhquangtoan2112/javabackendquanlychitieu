@@ -2,7 +2,6 @@ package com.data.toan.model;
 
 import java.util.Date;
 import java.util.List;
-import java.util.Locale.Category;
 
 import org.hibernate.annotations.CreationTimestamp;
 
@@ -38,7 +37,7 @@ public class UserEntity extends AbstractEntity {
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<CategoriesEntity> categories;
 
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "user_id", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<TransactionEntity> transactions;
 
 }

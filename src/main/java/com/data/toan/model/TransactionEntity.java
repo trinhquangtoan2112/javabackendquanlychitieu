@@ -1,8 +1,11 @@
 package com.data.toan.model;
 
+import java.io.Serializable;
 import java.util.Date;
 
 import org.hibernate.annotations.CreationTimestamp;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -19,12 +22,12 @@ import lombok.*;
 @AllArgsConstructor
 @Entity(name = "Transaction")
 @Table(name = "tbl_transaction")
-public class TransactionEntity extends AbstractEntity {
+public class TransactionEntity extends AbstractEntity implements Serializable {
     @Column(name = "amount")
     private Long amount;
     @Lob
     @Column(name = "note", columnDefinition = "TEXT")
-    private String note;
+    private String descrption;
     @Column(name = "transaction_date")
     @CreationTimestamp
     private Date date;
@@ -34,9 +37,11 @@ public class TransactionEntity extends AbstractEntity {
 
     @ManyToOne
     @JoinColumn(name = "user_id")
-    private UserEntity user;
+    @JsonIgnore
+    private UserEntity user_id;
 
     @ManyToOne
     @JoinColumn(name = "category_id")
+    @JsonIgnore
     private CategoriesEntity category;
 }
