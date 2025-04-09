@@ -25,9 +25,9 @@ import lombok.*;
 public class TransactionEntity extends AbstractEntity implements Serializable {
     @Column(name = "amount")
     private Long amount;
-    @Lob
-    @Column(name = "note", columnDefinition = "TEXT")
-    private String descrption;
+
+    @Column(name = "note", length = 500)
+    private String note;
     @Column(name = "transaction_date")
     @CreationTimestamp
     private Date date;

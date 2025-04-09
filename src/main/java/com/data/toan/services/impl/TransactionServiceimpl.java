@@ -38,7 +38,7 @@ public class TransactionServiceimpl implements TransactionService {
                 });
 
         TransactionEntity transactionEntity = TransactionEntity.builder().category(categoriesEntity).user_id(user)
-                .amount(transactionDTO.getAmount()).descrption(transactionDTO.getNote()).build();
+                .amount(transactionDTO.getAmount()).note(transactionDTO.getNote()).build();
 
         transactionRepository.save(transactionEntity);
 
@@ -53,7 +53,7 @@ public class TransactionServiceimpl implements TransactionService {
         CategoriesEntity category = categoryRepository.findById(transactionEditDTO.getCategoryId())
                 .orElseThrow(() -> new RuntimeException("Category not found"));
         if (transactionEditDTO.getNote() != null) {
-            transaction.setDescrption(transactionEditDTO.getNote());
+            transaction.setNote(transactionEditDTO.getNote());
         }
         if (transactionEditDTO.getAmount() != null) {
             transaction.setAmount(transactionEditDTO.getAmount());
